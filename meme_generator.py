@@ -4,7 +4,6 @@ import requests
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter, ImageChops, ImageSequence
 import pyvips
 import imageio
-from pygifsicle import optimize
 from os import system, mkdir
 import shutil
 #
