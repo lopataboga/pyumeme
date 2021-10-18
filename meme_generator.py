@@ -133,6 +133,7 @@ class Memegen:
     AND THIS METHOD WORK SLOWLY"""
     def advice_slow(path, bottom_text, top_text="", font_path='./fonts/impact/impact.ttf', font_size=9,
                stroke_width=3, url=False, RESULT_FILENAME="temp", TEMP_FOLDER="temp", watermark=None, gt_bytes=False, can_resize=True):
+        options = ""
         if url:
             path = requests.get(path).content
             try:
@@ -237,8 +238,7 @@ class Memegen:
         del im
         del text_canvas
         if options != "n=-1":
-            prefix = "PNG"
-            save_file = RESULT_FILENAME + "." + prefix
+            save_file = RESULT_FILENAME
         else:
             prefix = "GIF"
             save_file = RESULT_FILENAME + "." + prefix
@@ -247,7 +247,7 @@ class Memegen:
         if image_width_old < 500 or image_height_old < 500:
             if can_resize:
                 need_resize = True
-
+        print(image.get("format"))
         if options == "n=-1":
             print(image.get_fields())
             page_height = image.get("page-height")
@@ -279,7 +279,7 @@ class Memegen:
                 frame.write_to_file(aboba)
                 imageprefix += 1
             fps = 1000 / dur[0]
-            print(system(f"ffmpeg -f image2 -framerate {fps} -y -i {path_to_save}%d.jpg convert/{RESULT_FILENAME}.gif"))
+            print(system(f"ffmpeg -f image2 -framerate {fps} -y -i {path_to_save}%d.jpg {RESULT_FILENAME}.gif"))
             #with imageio.get_writer(save_file, format=prefix, fps = 1000 / dur[0]) as writer:
                 #for page in pages:
                     #frame = page.composite(text_image, "over", x=0, y=0)
@@ -295,12 +295,12 @@ class Memegen:
                 image = image.resize(2, kernel = "linear")
             print("тхере")
             image = image.composite(text_image, "over", x=0, y=0)
-            image.write_to_file(save_file)
+            image.write_to_file(save_file  + "." + "png")
 
     if __name__ == '__main__':
-        top_text = input("top_text:")
-        bottom_text = input("bottom_text:")
-        path = input("path:")
+        top_text = input(">top_text: ")
+        bottom_text = input(">bottom_text: ")
+        path = input(">path: ")
         advice_slow(path, bottom_text=bottom_text, top_text=top_text,
-             url=True, watermark=None, TEMP_FOLDER="./convert/temp")
+             url=False, watermark=None, TEMP_FOLDER="./convert/temp")
         
