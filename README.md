@@ -2,6 +2,9 @@
 FOR __ENGLISH__ TEXT JUST COPY PASTE THIS TEXT TO GOOGLE TRANSLATOR  
 Скрипт работает на Windows и на Linux, тестировался на python 3.7  
 ***
+![temp](https://user-images.githubusercontent.com/90105380/137776669-3486609f-2ee2-48b5-bfdb-238832d9cdc4.png)
+![temp](https://user-images.githubusercontent.com/90105380/137777312-528bc352-a865-47a1-926c-76d4c18e23fa.gif)
+***
 __Необходимые библиотеки:__  
 + textwrap    
 + BytesIO  
