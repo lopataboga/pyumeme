@@ -6,10 +6,7 @@ import pyvips
 import imageio
 from os import system, mkdir
 import shutil
-#
-# umemegen - ultimate meme generator
-#туду-
-#нет туду блять
+
 
 class Memegen:
     """FOR SMALL GIF, IMAGES
